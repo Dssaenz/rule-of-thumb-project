@@ -1,7 +1,13 @@
 import './App.css';
+import { DataProps } from './types/app';
+import { CardCelebrity } from './components';
+import useSendVote from './hooks/useSendVote';
 import logo from './assets/img/pope-francis.png';
 
 function App() {
+  const { people, active, isVoting, sendVote, voteAgain, setActive } =
+    useSendVote();
+
   return (
     <>
       <nav className='nav' role='navigation'>
@@ -122,11 +128,27 @@ function App() {
             </svg>
           </button>
         </aside>
-        <main role='main'>
-          <p>
-            Start: Implementation 👉 Your code goes here 👈 End: Implementation
-          </p>
-        </main>
+
+        <div className='grid-template'>
+          {people.map(item => (
+            <CardCelebrity
+              id={item.id}
+              key={item.name}
+              name={item.name}
+              picture={item.picture}
+              date={item.lastUpdated}
+              likes={item.votes.positive}
+              dislikes={item.votes.negative}
+              description={item.description}
+              active={active}
+              isVoting={isVoting}
+              onClick={sendVote}
+              setActive={setActive}
+              voteAgain={voteAgain}
+            />
+          ))}
+        </div>
+
         <aside
           className='banner banner-bottom'
           role='doc-tip'
