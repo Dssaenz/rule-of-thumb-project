@@ -6,6 +6,7 @@ jobs:
   list_test:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: Prepare Lint for push
         run: yarn
       - name: Lint
