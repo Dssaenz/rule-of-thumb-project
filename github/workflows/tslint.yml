@@ -1,0 +1,16 @@
+name: TS Lint
+
+on: [push]
+
+jobs:
+  list_test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Prepare Lint for push
+        run: yarn
+      - name: Lint
+        run: yarn lint
+      - name: Prepare Prettier for push
+        run: yarn
+      - name: Lint
+        run: yarn prettier
