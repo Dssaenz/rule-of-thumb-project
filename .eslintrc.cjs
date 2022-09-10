@@ -32,8 +32,9 @@ module.exports = {
     'no-console': [RULES.WARN],
     'react/react-in-jsx-scope': RULES.OFF,
     quotes: [RULES.ERROR, 'single'],
+    'no-duplicate-imports': RULES.ERROR,
+    '@typescript-eslint/strict-boolean-expressions': RULES.OFF,
     '@typescript-eslint/explicit-function-return-type': RULES.OFF,
     '@typescript-eslint/restrict-template-expressions': RULES.OFF,
-    '@typescript-eslint/strict-boolean-expressions': RULES.OFF,
   },
 };
