@@ -70,7 +70,7 @@ export const data: DataProps[] = [
     id: '6',
     name: 'Greta Thumberg',
     description:
-      "Thunberg's activism started after convincing her parents to adopt several lifestyle choices to reduce their own carbon footprint.",
+      'Thunberg\'s activism started after convincing her parents to adopt several lifestyle choices to reduce their own carbon footprint.',
     category: 'environment',
     picture: './src/assets/img/greta.jpeg',
     lastUpdated: '2021-02-26T23:44:50.326Z',
