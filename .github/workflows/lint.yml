@@ -7,11 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Prepare Lint for push
+      - name: Prepare Lint and Prettier for push
         run: yarn
       - name: Lint
         run: yarn lint
-      - name: Prepare Prettier for push
-        run: yarn
-      - name: Lint
+      - name: Prettier
         run: yarn prettier
