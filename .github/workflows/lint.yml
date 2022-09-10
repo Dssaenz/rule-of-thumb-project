@@ -6,11 +6,10 @@ jobs:
   list_test:
     runs-on: ubuntu-latest
     steps:
-      - name: Prepare Lint for push
+      - uses: actions/checkout@v2
+      - name: Prepare Lint and Prettier for push
         run: yarn
       - name: Lint
         run: yarn lint
-      - name: Prepare Prettier for push
-        run: yarn
-      - name: Lint
+      - name: Prettier
         run: yarn prettier
