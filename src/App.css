@@ -19,7 +19,6 @@ hr[role='separator'] {
   margin: 1.5rem 1rem;
 }
 
-
 .select_section {
   width: 85%;
   margin: 12px auto;
@@ -27,7 +26,6 @@ hr[role='separator'] {
   align-items: center;
   justify-content: space-between;
 }
-
 
 .select_section > p {
   font-weight: 300;
