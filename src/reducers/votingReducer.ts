@@ -2,7 +2,6 @@ import { VOTE_ACTIONS } from '../types/enums';
 import { DataProps } from '../types/app';
 
 interface CountState {
-  isVoting: boolean;
   people: DataProps[];
 }
 
@@ -16,7 +15,16 @@ type ActionType =
       payload: string;
     }
   | {
+      type: VOTE_ACTIONS.LIKE_VOTE;
+      payload: string;
+    }
+  | {
+      type: VOTE_ACTIONS.DISLIKE_VOTE;
+      payload: string;
+    }
+  | {
       type: VOTE_ACTIONS.HANDLE_VOTING;
+      payload: string;
     };
 
 const votingReducer = (state: CountState, action: ActionType) => {
@@ -46,10 +54,45 @@ const votingReducer = (state: CountState, action: ActionType) => {
             : { ...user }
         ),
       };
+    case VOTE_ACTIONS.LIKE_VOTE:
+      return {
+        ...state,
+        people: state.people.map(user =>
+          user.id === action.payload
+            ? {
+                ...user,
+                likeActive: true,
+                dislikeActive: false,
+              }
+            : { ...user }
+        ),
+      };
+    case VOTE_ACTIONS.DISLIKE_VOTE:
+      return {
+        ...state,
+        people: state.people.map(user =>
+          user.id === action.payload
+            ? {
+                ...user,
+                likeActive: false,
+                dislikeActive: true,
+              }
+            : { ...user }
+        ),
+      };
     case VOTE_ACTIONS.HANDLE_VOTING:
       return {
         ...state,
-        isVoting: !state.isVoting,
+        people: state.people.map(user =>
+          user.id === action.payload
+            ? {
+                ...user,
+                likeActive: false,
+                dislikeActive: false,
+                isVoting: !user.isVoting,
+              }
+            : { ...user }
+        ),
       };
     default:
       return state;

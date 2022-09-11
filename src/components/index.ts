@@ -1,3 +1,5 @@
 import CardCelebrity from './CardCelebrity/CardCelebrity';
+import WrapperList from './WrapperList/WrapperList';
+import SelectField from './SelectField/SelectField';
 
-export { CardCelebrity };
+export { CardCelebrity, WrapperList, SelectField };

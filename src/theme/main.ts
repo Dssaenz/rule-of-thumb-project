@@ -3,12 +3,14 @@ import { DefaultTheme } from 'styled-components';
 export const lightTheme: DefaultTheme = {
   name: 'light',
   colors: {
+    dark: '#000',
     backgroundColor: '#FFF',
     lightGreen: 'rgba(60, 187, 180, 0.6)',
     green: '#3CBBB4CC',
     lightOrange: 'rgba(249, 173, 29, 0.6)',
     orange: '#F9AD1DCC',
     gray: '#EBEBEB',
+    darkGradiant: 'rgba(0, 0, 0, 0.3)',
     icons: {
       core: '#000',
       white: '#FFF',
@@ -38,12 +40,14 @@ export const lightTheme: DefaultTheme = {
 export const darkTheme: DefaultTheme = {
   name: 'dark',
   colors: {
+    dark: '#000',
     backgroundColor: '#FFF',
     lightGreen: 'rgba(60, 187, 180, 0.6)',
     green: '#3CBBB4CC',
     lightOrange: 'rgba(249, 173, 29, 0.6)',
     orange: '#F9AD1DCC',
     gray: '#EBEBEB',
+    darkGradiant: 'rgba(0, 0, 0, 0.3)',
     icons: {
       core: '#000',
       white: '#FFF',

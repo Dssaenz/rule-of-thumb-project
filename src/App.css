@@ -19,6 +19,21 @@ hr[role='separator'] {
   margin: 1.5rem 1rem;
 }
 
+.select_section {
+  width: 85%;
+  margin: 12px auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.select_section > p {
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 29px;
+  color: #464646;
+}
+
 .nav {
   position: fixed;
   z-index: 2;
@@ -435,6 +450,12 @@ main h2 {
   display: contents;
 }
 
+@media only screen and (max-width: 480px) {
+  .select {
+    display: none;
+  }
+}
+
 @media all and (min-width: 500px) {
   .banner-top .banner__left {
     flex-basis: 30%;
@@ -559,12 +580,6 @@ main h2 {
     max-width: 1100px;
     margin-right: auto;
     margin-left: auto;
-  }
-
-  .max-centered > *,
-  .max-centered > hr[role='separator'] {
-    margin-right: 0;
-    margin-left: 0;
   }
 
   .max-centered main {

@@ -5,7 +5,10 @@ export interface PropsChildren {
 export interface DataProps {
   id: string;
   name: string;
+  isVoting: boolean;
   description: string;
+  likeActive: boolean;
+  dislikeActive: boolean;
   category: string;
   picture: string;
   lastUpdated: string;

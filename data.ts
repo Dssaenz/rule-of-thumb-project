@@ -4,19 +4,25 @@ export const data: DataProps[] = [
   {
     id: '1',
     name: 'Kanye West',
+    isVoting: false,
+    likeActive: false,
+    dislikeActive: false,
     description:
       'Born in Atlanta and raised in Chicago, West was first known as a producer for Roc-A-Fella Records in the early 2000s, producing singles for several mainstream artists.',
     category: 'entertainment',
     picture: './src/assets/img/kanye.jpeg',
     lastUpdated: '2020-03-10T23:08:57.892Z',
     votes: {
-      positive: 0,
-      negative: 0,
+      positive: 23,
+      negative: 36,
     },
   },
   {
     id: '2',
     name: 'Mark Zuckerberg',
+    isVoting: true,
+    likeActive: false,
+    dislikeActive: false,
     description:
       'Born in White Plains, New York, Zuckerberg attended Harvard University, where he launched the Facebook social networking service from his dormitory room on February 4, 2004.',
     category: 'business',
@@ -30,6 +36,9 @@ export const data: DataProps[] = [
   {
     id: '3',
     name: 'Cristina Fernández de Kirchner',
+    isVoting: false,
+    likeActive: false,
+    dislikeActive: false,
     description:
       'Her first term of office started with a conflict with the agricultural sector, and her proposed taxation system was rejected.',
     category: 'politics',
@@ -43,6 +52,9 @@ export const data: DataProps[] = [
   {
     id: '4',
     name: 'Malala Yousafzai',
+    isVoting: false,
+    likeActive: false,
+    dislikeActive: false,
     description:
       'The daughter of educational activist Ziauddin, Yousafzai was born to a Pashtun family in Mingora, Khyber Pakhtunkhwa, Pakistan. Her family came to run a chain of schools in the region.',
     category: 'politics',
@@ -56,6 +68,9 @@ export const data: DataProps[] = [
   {
     id: '5',
     name: 'Elon Musk',
+    isVoting: true,
+    likeActive: false,
+    dislikeActive: false,
     description:
       'In 2002, Musk founded SpaceX, an aerospace manufacturer and space transport services company, of which he is CEO, CTO, and lead designer.',
     category: 'business',
@@ -69,8 +84,11 @@ export const data: DataProps[] = [
   {
     id: '6',
     name: 'Greta Thumberg',
+    isVoting: false,
+    likeActive: false,
+    dislikeActive: false,
     description:
-      "Thunberg's activism started after convincing her parents to adopt several lifestyle choices to reduce their own carbon footprint.",
+      'Thunbergs activism started after convincing her parents to adopt several lifestyle choices to reduce their own carbon footprint.',
     category: 'environment',
     picture: './src/assets/img/greta.jpeg',
     lastUpdated: '2021-02-26T23:44:50.326Z',

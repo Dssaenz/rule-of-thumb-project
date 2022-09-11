@@ -1,3 +1,4 @@
 public/
 vite.config.ts
 vite-env.d.ts
+data.ts
