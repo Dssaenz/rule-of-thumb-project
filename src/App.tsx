@@ -1,12 +1,15 @@
 import { useState } from 'react';
 
 import './App.css';
-import { WrapperList, CardCelebrity } from './components';
+import Search from './assets/img/search.svg';
 import useSendVote from './hooks/useSendVote';
 import logo from './assets/img/pope-francis.png';
+import LikeIcon from './assets/img/thumbs-up.svg';
+import DislikeIcon from './assets/img/thumbs-down.svg';
+import { WrapperList, CardCelebrity, SelectField } from './components';
 
 function App() {
-  const [listSection, setListSection] = useState<boolean>(false);
+  const [listSection, setListSection] = useState<boolean>(true);
   const { people, sendVote, onSelectLike, onSelectDislike, voteAgain } =
     useSendVote();
 
@@ -42,7 +45,7 @@ function App() {
                   type='text'
                 />
                 <button className='nav__search icon-button' type='submit'>
-                  <img src='assets/img/search.svg' alt='search' />
+                  <img src={Search} alt='search' />
                 </button>
               </form>
             </li>
@@ -87,10 +90,10 @@ function App() {
               <p className='featured-card__cta'>What’s Your Veredict?</p>
               <div className='featured-card__buttons'>
                 <button className='icon-button' aria-label='thumbs up'>
-                  <img src='assets/img/thumbs-up.svg' alt='thumbs up' />
+                  <img src={LikeIcon} alt='like' />
                 </button>
                 <button className='icon-button' aria-label='thumbs down'>
-                  <img src='assets/img/thumbs-down.svg' alt='thumbs down' />
+                  <img src={DislikeIcon} alt='like' />
                 </button>
               </div>
             </div>
@@ -131,9 +134,12 @@ function App() {
             </svg>
           </button>
         </aside>
-        <button onClick={() => setListSection(!listSection)}>
-          {listSection ? 'list' : 'grid'}
-        </button>
+
+        <section className='select_section'>
+          <p>Previous Rulings</p>
+          <SelectField setListSection={setListSection} />
+        </section>
+
         <WrapperList listSection={listSection}>
           {people.map(item => (
             <CardCelebrity

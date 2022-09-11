@@ -51,11 +51,11 @@ const CardCelebrity: FC<Props> = ({
 }) => {
   const { firstValue, secondValue } = getPercentage(likes, dislikes);
 
-  const personName = name.length > 20 ? `${name.substring(0, 20)} ...` : name;
+  const personName = name.length > 16 ? `${name.substring(0, 16)} ...` : name;
 
   const textDescription =
-    description.length > 55
-      ? `${description.substring(0, 55)} ...`
+    description.length > 50
+      ? `${description.substring(0, 50)} ...`
       : description;
 
   return (

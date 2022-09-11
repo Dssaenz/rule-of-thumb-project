@@ -40,8 +40,22 @@ export const ProfileContainer = styled.div`
     left: ${({ listSection }: PropsStyle) => (listSection ? '0px' : '0px')};
   }
 
-  @media screen and (min-width: 769px) {
+  @media screen and (min-width: 769px) and (max-width: 992px) {
     width: ${({ listSection }: PropsStyle) => (listSection ? '85%' : '40%')};
+    height: ${({ listSection }: PropsStyle) =>
+      listSection ? '150px' : '300px'};
+    background-size: ${({ listSection }: PropsStyle) =>
+      listSection ? '16rem 100%' : 'cover'};
+    background-position: left;
+    background-color: rgb(121, 121, 121);
+  }
+  .ranket {
+    top: ${({ listSection }: PropsStyle) => (listSection ? '0px' : '85px')};
+    left: ${({ listSection }: PropsStyle) => (listSection ? '0px' : '0px')};
+  }
+
+  @media screen and (min-width: 993px) {
+    width: ${({ listSection }: PropsStyle) => (listSection ? '85%' : '30%')};
     height: ${({ listSection }: PropsStyle) =>
       listSection ? '150px' : '300px'};
     background-size: ${({ listSection }: PropsStyle) =>
@@ -123,6 +137,7 @@ export const VoteSection = styled.div`
 export const TextSection = styled.div`
   padding: 0 8% 0 17%;
   white-space: pre-line;
+  margin-top: 15px;
 
   .text_name {
     font-weight: 400;

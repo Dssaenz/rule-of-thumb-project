@@ -3,6 +3,7 @@ import { DefaultTheme } from 'styled-components';
 export const lightTheme: DefaultTheme = {
   name: 'light',
   colors: {
+    dark: '#000',
     backgroundColor: '#FFF',
     lightGreen: 'rgba(60, 187, 180, 0.6)',
     green: '#3CBBB4CC',
@@ -39,6 +40,7 @@ export const lightTheme: DefaultTheme = {
 export const darkTheme: DefaultTheme = {
   name: 'dark',
   colors: {
+    dark: '#000',
     backgroundColor: '#FFF',
     lightGreen: 'rgba(60, 187, 180, 0.6)',
     green: '#3CBBB4CC',

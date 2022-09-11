@@ -24,7 +24,7 @@ export const MainLayout = styled.section`
     .carousel_container {
       padding: 0 20px;
       white-space: nowrap;
-      margin: 30px 0 10px 0;
+      margin: 0px 0 10px 0;
     }
   }
 
