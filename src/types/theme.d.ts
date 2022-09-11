@@ -10,6 +10,7 @@ declare module 'styled-components' {
       lightOrange: string;
       orange: string;
       gray: string;
+      darkGradiant: string;
       icons: {
         core: string;
         white: string;

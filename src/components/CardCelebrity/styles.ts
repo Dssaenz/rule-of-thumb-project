@@ -4,6 +4,7 @@ interface PropsStyle {
   background?: string;
   type?: string;
   status?: boolean;
+  listSection?: boolean;
   theme: DefaultTheme;
 }
 
@@ -25,8 +26,32 @@ export const ProfileContainer = styled.div`
     top: 85px;
   }
 
-  @media (min-width: 481px) and (max-width: 768px) {
-    width: 100%;
+  @media only screen and (min-width: 481px) and (max-width: 768px) {
+    width: ${({ listSection }: PropsStyle) => (listSection ? '100%' : '47%')};
+    height: ${({ listSection }: PropsStyle) =>
+      listSection ? '150px' : '300px'};
+    background-size: ${({ listSection }: PropsStyle) =>
+      listSection ? '16rem 100%' : 'cover'};
+    background-position: left;
+    background-color: rgb(121, 121, 121);
+  }
+  .ranket {
+    top: ${({ listSection }: PropsStyle) => (listSection ? '85px' : '85px')};
+    left: ${({ listSection }: PropsStyle) => (listSection ? '0px' : '0px')};
+  }
+
+  @media screen and (min-width: 769px) {
+    width: ${({ listSection }: PropsStyle) => (listSection ? '85%' : '40%')};
+    height: ${({ listSection }: PropsStyle) =>
+      listSection ? '150px' : '300px'};
+    background-size: ${({ listSection }: PropsStyle) =>
+      listSection ? '16rem 100%' : 'cover'};
+    background-position: left;
+    background-color: rgb(121, 121, 121);
+  }
+  .ranket {
+    top: ${({ listSection }: PropsStyle) => (listSection ? '0px' : '85px')};
+    left: ${({ listSection }: PropsStyle) => (listSection ? '0px' : '0px')};
   }
 `;
 
@@ -52,10 +77,26 @@ export const BarProgress = styled.progress`
 export const RowLayout = styled.div`
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: ${props => props.theme.colors.darkGradiant};
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  @media only screen and (min-width: 481px) and (max-width: 768px) {
+    flex-direction: ${({ listSection }: PropsStyle) =>
+      listSection ? 'row' : 'column'};
+    background: ${({ theme, listSection }: PropsStyle) =>
+      !listSection
+        ? `${theme.colors.darkGradiant}`
+        : 'linear-gradient(0.25turn, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3), #858585, #858585, #858585, #858585, #858585, #858585, #858585, #858585, #858585)'};
+  }
+  @media screen and (min-width: 769px) {
+    flex-direction: ${({ listSection }: PropsStyle) =>
+      listSection ? 'row' : 'column'};
+    background: ${({ listSection }: PropsStyle) =>
+      !listSection
+        ? 'rgba(0, 0, 0, 0.3)'
+        : 'linear-gradient(0.25turn, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3), #858585, #858585, #858585, #858585, #858585, #858585, #858585, #858585, #858585)'};
+  }
 `;
 
 export const VoteSection = styled.div`

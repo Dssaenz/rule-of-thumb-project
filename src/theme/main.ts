@@ -9,6 +9,7 @@ export const lightTheme: DefaultTheme = {
     lightOrange: 'rgba(249, 173, 29, 0.6)',
     orange: '#F9AD1DCC',
     gray: '#EBEBEB',
+    darkGradiant: 'rgba(0, 0, 0, 0.3)',
     icons: {
       core: '#000',
       white: '#FFF',
@@ -44,6 +45,7 @@ export const darkTheme: DefaultTheme = {
     lightOrange: 'rgba(249, 173, 29, 0.6)',
     orange: '#F9AD1DCC',
     gray: '#EBEBEB',
+    darkGradiant: 'rgba(0, 0, 0, 0.3)',
     icons: {
       core: '#000',
       white: '#FFF',

@@ -1,9 +1,12 @@
+import { useState } from 'react';
+
 import './App.css';
-import { CardCelebrity } from './components';
+import { WrapperList, CardCelebrity } from './components';
 import useSendVote from './hooks/useSendVote';
 import logo from './assets/img/pope-francis.png';
 
 function App() {
+  const [listSection, setListSection] = useState<boolean>(false);
   const { people, sendVote, onSelectLike, onSelectDislike, voteAgain } =
     useSendVote();
 
@@ -49,7 +52,6 @@ function App() {
       <header className='hero'>
         <img
           className='hero__background'
-          srcSet='./assets/img/pope-francis.png 750w, ./assets/img/pope-francis.@2x.png 1440w'
           sizes='(min-width: 750px) 1440px, 100vw'
           src={logo}
           alt='Pope Francis'
@@ -129,30 +131,31 @@ function App() {
             </svg>
           </button>
         </aside>
-
-        <section className='main-template'>
-          <div className='carousel-container'>
-            {people.map(item => (
-              <CardCelebrity
-                id={item.id}
-                key={item.name}
-                name={item.name}
-                picture={item.picture}
-                date={item.lastUpdated}
-                isVoting={item.isVoting}
-                activeLike={item.likeActive}
-                activeDislike={item.dislikeActive}
-                likes={item.votes.positive}
-                dislikes={item.votes.negative}
-                description={item.description}
-                sendVote={sendVote}
-                voteAgain={voteAgain}
-                onSelectLike={onSelectLike}
-                onSelectDislike={onSelectDislike}
-              />
-            ))}
-          </div>
-        </section>
+        <button onClick={() => setListSection(!listSection)}>
+          {listSection ? 'list' : 'grid'}
+        </button>
+        <WrapperList listSection={listSection}>
+          {people.map(item => (
+            <CardCelebrity
+              id={item.id}
+              key={item.name}
+              name={item.name}
+              picture={item.picture}
+              date={item.lastUpdated}
+              isVoting={item.isVoting}
+              listSection={listSection}
+              likes={item.votes.positive}
+              activeLike={item.likeActive}
+              dislikes={item.votes.negative}
+              description={item.description}
+              activeDislike={item.dislikeActive}
+              sendVote={sendVote}
+              voteAgain={voteAgain}
+              onSelectLike={onSelectLike}
+              onSelectDislike={onSelectDislike}
+            />
+          ))}
+        </WrapperList>
 
         <aside
           className='banner banner-bottom'

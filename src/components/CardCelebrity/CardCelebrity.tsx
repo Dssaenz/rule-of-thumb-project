@@ -24,6 +24,7 @@ interface Props {
   isVoting: boolean;
   activeLike: boolean;
   description: string;
+  listSection: boolean;
   activeDislike: boolean;
   sendVote: (id: string, activeLike: boolean, activeDislike: boolean) => void;
   voteAgain: (id: string) => void;
@@ -41,6 +42,7 @@ const CardCelebrity: FC<Props> = ({
   isVoting,
   activeLike,
   description,
+  listSection,
   activeDislike,
   sendVote,
   voteAgain,
@@ -57,13 +59,19 @@ const CardCelebrity: FC<Props> = ({
       : description;
 
   return (
-    <ProfileContainer background={picture}>
+    <ProfileContainer background={picture} listSection={!listSection}>
       <div className='ranket'>
-        <Pressable type='like'>
-          <img src={LikeIcon} alt='like' />
-        </Pressable>
+        {firstValue > secondValue ? (
+          <Pressable type='like'>
+            <img src={LikeIcon} alt='like' />
+          </Pressable>
+        ) : (
+          <Pressable>
+            <img src={DislikeIcon} alt='like' />
+          </Pressable>
+        )}
       </div>
-      <RowLayout>
+      <RowLayout listSection={!listSection}>
         <TextSection>
           <p className='text_name'>{personName}</p>
           <p className='text_description'>{textDescription}</p>
