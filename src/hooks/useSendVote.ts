@@ -1,4 +1,4 @@
-import { useState, useReducer, useEffect } from 'react';
+import { useReducer, useEffect } from 'react';
 
 import votingReducer from '../reducers/votingReducer';
 import { LOCAL_STORAGE_KEYS, VOTE_ACTIONS } from '../types/enums';
@@ -10,7 +10,6 @@ import {
 import { data } from '../../data';
 
 const initialState = {
-  isVoting: false,
   people:
     getLocalStorage(LOCAL_STORAGE_KEYS.PEOPLE) === null
       ? data
@@ -18,22 +17,30 @@ const initialState = {
 };
 
 const useSendVote = () => {
-  const [active, setActive] = useState<string>('');
-  const [{ people, isVoting }, dispatch] = useReducer(
-    votingReducer,
-    initialState
-  );
+  const [{ people }, dispatch] = useReducer(votingReducer, initialState);
 
-  const voteAgain = () => dispatch({ type: VOTE_ACTIONS.HANDLE_VOTING });
+  const voteAgain = (userId: string) =>
+    dispatch({ type: VOTE_ACTIONS.HANDLE_VOTING, payload: userId });
 
-  const sendVote = (userId: string) => {
-    if (active === '') return;
-    active === 'like'
+  const onSelectLike = (userId: string) => {
+    dispatch({ type: VOTE_ACTIONS.LIKE_VOTE, payload: userId });
+  };
+  const onSelectDislike = (userId: string) => {
+    dispatch({ type: VOTE_ACTIONS.DISLIKE_VOTE, payload: userId });
+  };
+
+  const sendVote = (
+    userId: string,
+    activeLike: boolean,
+    activeDislike: boolean
+  ) => {
+    if (!activeLike && !activeDislike) return false;
+
+    activeLike
       ? dispatch({ type: VOTE_ACTIONS.POSITIVE_VOTE, payload: userId })
       : dispatch({ type: VOTE_ACTIONS.NEGATIVE_VOTE, payload: userId });
 
-    dispatch({ type: VOTE_ACTIONS.HANDLE_VOTING });
-    setActive('');
+    dispatch({ type: VOTE_ACTIONS.HANDLE_VOTING, payload: userId });
   };
 
   useEffect(() => {
@@ -41,12 +48,11 @@ const useSendVote = () => {
   }, [people]);
 
   return {
-    active,
     people,
-    isVoting,
     sendVote,
     voteAgain,
-    setActive,
+    onSelectLike,
+    onSelectDislike,
   };
 };
 

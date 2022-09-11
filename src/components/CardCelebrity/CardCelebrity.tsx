@@ -1,82 +1,113 @@
 import { FC } from 'react';
+
+import LikeIcon from '../../assets/img/thumbs-up.svg';
+import DislikeIcon from '../../assets/img/thumbs-down.svg';
 import { getPercentage } from '../../utils/percentage.utility';
 import {
   ProfileContainer,
+  Section,
   BarProgress,
   RowLayout,
   TextSection,
   VoteSection,
   Pressable,
+  VoteButton,
 } from './styles';
 
 interface Props {
   id: string;
-  key: string;
-  date: string;
   name: string;
+  date: string;
   likes: number;
-  active: string;
   picture: string;
   dislikes: number;
   isVoting: boolean;
+  activeLike: boolean;
   description: string;
-  onClick: (id: string) => void;
-  voteAgain: () => void;
-  setActive: (list: string) => void;
+  activeDislike: boolean;
+  sendVote: (id: string, activeLike: boolean, activeDislike: boolean) => void;
+  voteAgain: (id: string) => void;
+  onSelectLike: (id: string) => void;
+  onSelectDislike: (id: string) => void;
 }
-
-const votingButtons: string[] = ['like', 'dislike'];
 
 const CardCelebrity: FC<Props> = ({
   id,
   name,
   date,
   likes,
-  active,
   picture,
   dislikes,
   isVoting,
+  activeLike,
   description,
-  onClick,
+  activeDislike,
+  sendVote,
   voteAgain,
-  setActive,
+  onSelectLike,
+  onSelectDislike,
 }) => {
   const { firstValue, secondValue } = getPercentage(likes, dislikes);
 
+  const personName = name.length > 20 ? `${name.substring(0, 20)} ...` : name;
+
+  const textDescription =
+    description.length > 55
+      ? `${description.substring(0, 55)} ...`
+      : description;
+
   return (
     <ProfileContainer background={picture}>
+      <div className='ranket'>
+        <Pressable type='like'>
+          <img src={LikeIcon} alt='like' />
+        </Pressable>
+      </div>
       <RowLayout>
         <TextSection>
-          <p>{name}</p>
-          <p>{description}</p>
+          <p className='text_name'>{personName}</p>
+          <p className='text_description'>{textDescription}</p>
         </TextSection>
         <VoteSection>
-          <p>{date}</p>
-
+          <p>{!isVoting ? date : 'Thank you for your vote!'}</p>
           <div className='vote_buttons'>
             {!isVoting && (
               <>
-                {votingButtons.map(list => (
-                  <Pressable
-                    key={list}
-                    type={list}
-                    status={active === list}
-                    onClick={() => setActive(list)}
-                  />
-                ))}
+                <Pressable
+                  type='like'
+                  status={activeLike}
+                  onClick={() => onSelectLike(id)}>
+                  <img src={LikeIcon} alt='like' />
+                </Pressable>
+                <Pressable
+                  status={activeDislike}
+                  onClick={() => onSelectDislike(id)}>
+                  <img src={DislikeIcon} alt='dislike' />
+                </Pressable>
               </>
             )}
-
-            <button onClick={!isVoting ? () => onClick(id) : () => voteAgain()}>
+            <VoteButton
+              onClick={
+                isVoting
+                  ? () => voteAgain(id)
+                  : () => sendVote(id, activeLike, activeDislike)
+              }>
               {!isVoting ? 'Vote Now' : 'Vote Again'}
-            </button>
+            </VoteButton>
           </div>
         </VoteSection>
       </RowLayout>
-      <BarProgress>
-        <progress value={Math.round(firstValue)} max='100' />
-        {firstValue.toFixed(1)} {secondValue.toFixed(1)}
-      </BarProgress>
+      <Section>
+        <div>
+          <img src={LikeIcon} alt='like' />
+          <p className='minValue'>{firstValue.toFixed(1)}%</p>
+        </div>
+        <div>
+          <p className='maxValue'>{secondValue.toFixed(1)}%</p>
+          <img src={DislikeIcon} alt='like' />
+        </div>
+      </Section>
+      <BarProgress value={Math.round(firstValue)} max='100' />
     </ProfileContainer>
   );
 };

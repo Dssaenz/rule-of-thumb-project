@@ -4,7 +4,7 @@ import useSendVote from './hooks/useSendVote';
 import logo from './assets/img/pope-francis.png';
 
 function App() {
-  const { people, active, isVoting, sendVote, voteAgain, setActive } =
+  const { people, sendVote, onSelectLike, onSelectDislike, voteAgain } =
     useSendVote();
 
   return (
@@ -130,25 +130,29 @@ function App() {
           </button>
         </aside>
 
-        <div className='grid-template'>
-          {people.map(item => (
-            <CardCelebrity
-              id={item.id}
-              key={item.name}
-              name={item.name}
-              picture={item.picture}
-              date={item.lastUpdated}
-              likes={item.votes.positive}
-              dislikes={item.votes.negative}
-              description={item.description}
-              active={active}
-              isVoting={isVoting}
-              onClick={sendVote}
-              setActive={setActive}
-              voteAgain={voteAgain}
-            />
-          ))}
-        </div>
+        <section className='main-template'>
+          <div className='carousel-container'>
+            {people.map(item => (
+              <CardCelebrity
+                id={item.id}
+                key={item.name}
+                name={item.name}
+                picture={item.picture}
+                date={item.lastUpdated}
+                isVoting={item.isVoting}
+                activeLike={item.likeActive}
+                activeDislike={item.dislikeActive}
+                likes={item.votes.positive}
+                dislikes={item.votes.negative}
+                description={item.description}
+                sendVote={sendVote}
+                voteAgain={voteAgain}
+                onSelectLike={onSelectLike}
+                onSelectDislike={onSelectDislike}
+              />
+            ))}
+          </div>
+        </section>
 
         <aside
           className='banner banner-bottom'
