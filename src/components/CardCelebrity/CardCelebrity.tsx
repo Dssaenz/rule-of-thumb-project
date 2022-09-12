@@ -21,6 +21,7 @@ interface Props {
   likes: number;
   picture: string;
   dislikes: number;
+  category: string;
   isVoting: boolean;
   activeLike: boolean;
   description: string;
@@ -39,6 +40,7 @@ const CardCelebrity: FC<Props> = ({
   likes,
   picture,
   dislikes,
+  category,
   isVoting,
   activeLike,
   description,
@@ -57,6 +59,11 @@ const CardCelebrity: FC<Props> = ({
     description.length > 50
       ? `${description.substring(0, 50)} ...`
       : description;
+
+  const currentDate = new Date(date);
+  const day = currentDate.getDate();
+  const month = currentDate.getMonth() + 1;
+  const year = currentDate.getFullYear();
 
   return (
     <ProfileContainer background={picture} listSection={!listSection}>
@@ -77,7 +84,11 @@ const CardCelebrity: FC<Props> = ({
           <p className='text_description'>{textDescription}</p>
         </TextSection>
         <VoteSection>
-          <p>{!isVoting ? date : 'Thank you for your vote!'}</p>
+          <p>
+            {!isVoting
+              ? `From ${day}/${month}/${year} in ${category}`
+              : 'Thank you for your vote!'}
+          </p>
           <div className='vote_buttons'>
             {!isVoting && (
               <>
