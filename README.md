@@ -1,4 +1,4 @@
-# Mercado Libre App
+# Rule of thumb
 
 ![React](https://img.shields.io/badge/-React-20232a?logo=react&style=for-the-badge) ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white) ![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
 
