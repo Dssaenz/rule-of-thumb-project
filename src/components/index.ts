@@ -5,6 +5,7 @@ import Navbar from './Navbar/Nabvar';
 import Footer from './Footer/Footer';
 import AddSection from './AddSection/AddSection';
 import TextSection from './TextSection/TextSection';
+import Header from './Header/Header';
 
 export {
   CardCelebrity,
@@ -14,4 +15,5 @@ export {
   AddSection,
   Footer,
   TextSection,
+  Header,
 };
