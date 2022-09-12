@@ -1,8 +1,8 @@
 # Mercado Libre App
 
-![React](https://img.shields.io/badge/-React-20232a?logo=react&style=for-the-badge) ![Styled Components](https://img.shields.io/badge/-Styled_Components-DA7192?logo=styled-components&style=for-the-badge) ![Typescript](https://img.shields.io/badge/-Typescript-1572B6?logo=typescript&style=for-the-badge)
+![React](https://img.shields.io/badge/-React-20232a?logo=react&style=for-the-badge) ![Typescript](https://img.shields.io/badge/-Typescript-1572B6?logo=typescript&style=for-the-badge) ![Styled Components](https://img.shields.io/badge/-Styled_Components-DA7192?logo=styled-components&style=for-the-badge)
 
-React web app build with React and Typescript
+React web app build with React and Typescript.
 
 # Demo!
 
@@ -20,7 +20,7 @@ React web app build with React and Typescript
 Requires [Node.js](https://nodejs.org/) v16 to run.
 Requires [YARN](https://yarnpkg.com/) v1.22.0 to run.
 
-##### Frontend
+### Frontend
 
 With yarn
 
