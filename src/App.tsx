@@ -39,6 +39,7 @@ function App() {
               picture={item.picture}
               date={item.lastUpdated}
               isVoting={item.isVoting}
+              category={item.category}
               listSection={listSection}
               likes={item.votes.positive}
               activeLike={item.likeActive}
