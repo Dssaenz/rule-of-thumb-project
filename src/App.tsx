@@ -4,6 +4,7 @@ import './App.css';
 import Search from './assets/img/search.svg';
 import useSendVote from './hooks/useSendVote';
 import logo from './assets/img/pope-francis.png';
+import peopleImg from './assets/img/bg-people.png';
 import LikeIcon from './assets/img/thumbs-up.svg';
 import DislikeIcon from './assets/img/thumbs-down.svg';
 import { WrapperList, CardCelebrity, SelectField } from './components';
@@ -38,7 +39,7 @@ function App() {
               <a href='#'>Login / Sign Up</a>
             </li>
             <li>
-              <form action='javascript:void(0)'>
+              <form>
                 <input
                   className='nav__search-input'
                   aria-label='search'
@@ -168,10 +169,8 @@ function App() {
           role='doc-tip'
           aria-label='Submit a name'>
           <img
-            srcSet='assets/img/bg-people.png 750w, assets/img/bg-people.@2x.png 1440w'
-            sizes='(min-width: 750px) 1440px, 100vw'
             className='banner__background'
-            src='assets/img/bg-people.png'
+            src={peopleImg}
             alt=''
             role='none'
           />
