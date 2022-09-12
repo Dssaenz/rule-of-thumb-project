@@ -1,13 +1,15 @@
 import { ThemeProvider } from 'styled-components';
 
 import GlobalStyle from './global';
-import { lightTheme } from './main';
+import { lightTheme, darkTheme } from './main';
 
 import { PropsChildren } from '../types/app';
+import useDarkMode from '../hooks/useDarkMode';
 
 function AppTheme({ children }: PropsChildren) {
+  const { theme } = useDarkMode();
   return (
-    <ThemeProvider theme={lightTheme}>
+    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <GlobalStyle />
       {children}
     </ThemeProvider>

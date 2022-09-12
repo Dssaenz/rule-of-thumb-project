@@ -5,6 +5,8 @@ interface PropsStyle {
   type?: string;
   status?: boolean;
   listSection?: boolean;
+  activeLike?: boolean;
+  activeDislike?: boolean;
   theme: DefaultTheme;
 }
 
@@ -13,17 +15,24 @@ export const ProfileContainer = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  border-radius: 4px;
   margin-bottom: 30px;
   width: 300px;
   height: 300px;
   overflow: hidden;
   position: relative;
-  margin-right: 10px;
+  margin-right: 15px;
   display: inline-block;
+  transition: all 500ms ease;
 
   .ranket {
     position: absolute;
     top: 85px;
+  }
+
+  :hover {
+    transform: scale(1.02);
+    background-position: ${({ listSection }) => !listSection && '20% 0'};
   }
 
   @media only screen and (min-width: 481px) and (max-width: 768px) {
@@ -31,7 +40,7 @@ export const ProfileContainer = styled.div`
     height: ${({ listSection }: PropsStyle) =>
       listSection ? '150px' : '300px'};
     background-size: ${({ listSection }: PropsStyle) =>
-      listSection ? '16rem 100%' : 'cover'};
+      listSection ? '14rem 100%' : 'cover'};
     background-position: left;
     background-color: rgb(121, 121, 121);
   }
@@ -45,7 +54,7 @@ export const ProfileContainer = styled.div`
     height: ${({ listSection }: PropsStyle) =>
       listSection ? '150px' : '300px'};
     background-size: ${({ listSection }: PropsStyle) =>
-      listSection ? '16rem 100%' : 'cover'};
+      listSection ? '17rem 100%' : 'cover'};
     background-position: left;
     background-color: rgb(121, 121, 121);
   }
@@ -59,7 +68,7 @@ export const ProfileContainer = styled.div`
     height: ${({ listSection }: PropsStyle) =>
       listSection ? '150px' : '300px'};
     background-size: ${({ listSection }: PropsStyle) =>
-      listSection ? '16rem 100%' : 'cover'};
+      listSection ? '18rem 100%' : 'cover'};
     background-position: left;
     background-color: rgb(121, 121, 121);
   }
@@ -101,7 +110,7 @@ export const RowLayout = styled.div`
     background: ${({ theme, listSection }: PropsStyle) =>
       !listSection
         ? `${theme.colors.darkGradiant}`
-        : 'linear-gradient(0.25turn, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3), #858585, #858585, #858585, #858585, #858585, #858585, #858585, #858585, #858585)'};
+        : 'linear-gradient(0.25turn, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3), #858585, #858585, #858585, #858585, #858585, #858585, #858585)'};
   }
   @media screen and (min-width: 769px) {
     flex-direction: ${({ listSection }: PropsStyle) =>
@@ -109,7 +118,7 @@ export const RowLayout = styled.div`
     background: ${({ listSection }: PropsStyle) =>
       !listSection
         ? 'rgba(0, 0, 0, 0.3)'
-        : 'linear-gradient(0.25turn, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3), #858585, #858585, #858585, #858585, #858585, #858585, #858585, #858585, #858585)'};
+        : 'linear-gradient(0.25turn, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3), #858585, #858585, #858585, #858585, #858585, #858585, #858585, #858585)'};
   }
 `;
 
@@ -184,6 +193,7 @@ export const Pressable = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
   border-width: 2px;
   margin-right: 10px;
   border-color: ${props => props.theme.colors.text.light};
@@ -197,8 +207,9 @@ export const VoteButton = styled.button`
   height: 40px;
   border-width: 1px;
   margin-right: 10px;
+  cursor: ${({ activeLike, activeDislike }: PropsStyle) =>
+    activeLike || activeDislike ? 'pointer' : 'auto'};
   border-color: ${props => props.theme.colors.text.light};
-  border-style: solid;
   font-size: 15px;
   line-height: 18px;
   background-color: rgba(0, 0, 0, 0.6);

@@ -1,5 +1,6 @@
 export enum LOCAL_STORAGE_KEYS {
   PEOPLE = 'people',
+  THEME = 'theme',
 }
 
 export enum VOTE_ACTIONS {
