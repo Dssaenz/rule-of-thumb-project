@@ -226,38 +226,6 @@ hr[role='separator'] {
   pointer-events: none;
 }
 
-.banner-top .banner__left {
-  flex-basis: 40%;
-  padding-right: 1rem;
-}
-
-.banner-top .banner__left > .banner__hairline {
-  color: var(--color-dark-gray);
-  font-size: 1.25rem;
-  font-weight: 300;
-  letter-spacing: -0.07rem;
-}
-
-.banner-top .banner__left > .banner__title {
-  display: block;
-  color: var(--color-dark-gray);
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: -0.05rem;
-}
-
-.banner-top .banner__right {
-  flex-basis: 60%;
-}
-
-.banner-top .banner__text {
-  margin: 0;
-  color: var(--color-dark-gray);
-  font-size: 1.25rem;
-  font-weight: 300;
-  letter-spacing: -0.05rem;
-}
-
 main[role='main'] {
   padding: 0 1rem;
   margin-top: 2rem;
@@ -285,10 +253,6 @@ main h2 {
   margin-right: 0.5rem;
 }
 
-.banner-top .icon-button {
-  display: none;
-}
-
 .max-centered {
   display: contents;
 }
@@ -296,16 +260,6 @@ main h2 {
 @media only screen and (max-width: 480px) {
   .select {
     display: none;
-  }
-}
-
-@media all and (min-width: 500px) {
-  .banner-top .banner__left {
-    flex-basis: 30%;
-  }
-
-  .banner-top .banner__right {
-    flex-basis: 70%;
   }
 }
 
@@ -347,14 +301,6 @@ main h2 {
 
   .featured-card__buttons {
     margin: 0 -1.5rem -2rem;
-  }
-
-  .banner-top .banner__left {
-    flex-basis: 20%;
-  }
-
-  .banner-top .banner__right {
-    flex-basis: 80%;
   }
 }
 
@@ -453,21 +399,6 @@ main h2 {
   .closing-gauge__left:after {
     border-top-width: 0.33rem;
     border-bottom-width: 0.33rem;
-  }
-
-  .banner-top .banner__text,
-  .banner-top .banner__left > .banner__hairline {
-    font-size: 1rem;
-  }
-
-  .banner-top .banner__left > .banner__title {
-    font-size: 1.5rem;
-    letter-spacing: 0;
-  }
-
-  .banner-top .icon-button {
-    display: block;
-    margin-left: 2rem;
   }
 
   main h2 {
