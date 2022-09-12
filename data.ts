@@ -20,7 +20,7 @@ export const data: DataProps[] = [
   {
     id: '2',
     name: 'Mark Zuckerberg',
-    isVoting: true,
+    isVoting: false,
     likeActive: false,
     dislikeActive: false,
     description:
@@ -68,7 +68,7 @@ export const data: DataProps[] = [
   {
     id: '5',
     name: 'Elon Musk',
-    isVoting: true,
+    isVoting: false,
     likeActive: false,
     dislikeActive: false,
     description:
