@@ -10,7 +10,7 @@ export const data: DataProps[] = [
     description:
       'Born in Atlanta and raised in Chicago, West was first known as a producer for Roc-A-Fella Records in the early 2000s, producing singles for several mainstream artists.',
     category: 'entertainment',
-    picture: 'https://elexpress.com.mx/wp-content/uploads/2022/03/Kanye-West.png',
+    picture: 'https://es.rollingstone.com/wp-content/uploads/2022/03/Kanye-West-publica-el-perturbante-video-de-%E2%80%98Eazy.jpg',
     lastUpdated: '2020-03-10T23:08:57.892Z',
     votes: {
       positive: 23,

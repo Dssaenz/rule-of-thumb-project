@@ -95,6 +95,8 @@ const CardCelebrity: FC<Props> = ({
               </>
             )}
             <VoteButton
+              activeLike={activeLike}
+              activeDislike={activeDislike}
               onClick={
                 isVoting
                   ? () => voteAgain(id)
