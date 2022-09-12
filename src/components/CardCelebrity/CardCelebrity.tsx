@@ -60,6 +60,7 @@ const CardCelebrity: FC<Props> = ({
 
   return (
     <ProfileContainer background={picture} listSection={!listSection}>
+      <img src={picture} />
       <div className='ranket'>
         {firstValue > secondValue ? (
           <Pressable type='like'>
